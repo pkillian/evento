@@ -27,6 +27,13 @@ def org_events(request, id=None):
     if (id != None):
         events = Event.objects.select_related().filter(org_id=id)
         json_result = {'events' : []}
+
+        org_id = id
+        org_name = Organization.objects.select_related().filter(id=org_id).org_name
+
+        json_result['events'].append(org_id)
+        json_result['events'].append(org_name)
+
         for item in events:
             event = {
                 'event_name': item.event_name,
