@@ -1,5 +1,7 @@
 from tastypie.resources import ModelResource
-from eventmanager.models import Event, Organization
+from tastypie.authorization import Authorization
+
+from eventmanager.models import Event, Organization, EventAnalytic
 
 import logging
 import re
@@ -29,10 +31,10 @@ def org_events(request, id=None):
         json_result = {'events' : []}
 
         org_id = id
-        org_name = Organization.objects.select_related().filter(id=org_id).org_name
+        org_name = Organization.objects.select_related().filter(id=org_id)[0].org_name
 
-        json_result['events'].append(org_id)
-        json_result['events'].append(org_name)
+        json_result['org_id'] = int(org_id)
+        json_result['org_name'] = org_name
 
         for item in events:
             event = {
@@ -43,3 +45,13 @@ def org_events(request, id=None):
             }
             json_result['events'].append(event)
         return HttpResponse(simplejson.dumps(json_result), mimetype='application/json')
+
+def analytic_store(request):
+    for item in request.POST['analytics']:
+        event_analytic = EventAnalytic()
+        event_analytic.event_id = int(item['event_id'])
+        event_analytic.latitude = float(item['latitude'])
+        event_analytic.longitude = float(item['longitude'])
+        event_analytic.date = int(item['date'])
+        event_analytic.save()
+    return HttpResponse(simplejson.dumps(request.POST), mimetype='application/json')

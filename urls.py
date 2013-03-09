@@ -22,6 +22,8 @@ urlpatterns = patterns('',
 
     url(r'^api/org_events/(?P<id>\d+)$', 'eventmanager.api.org_events', name='Org_Events'),
 
+    url(r'^api/analytics/$', 'eventmanager.api.analytic_store', name='Analytic_Store'),
+
     url(r'^api/', include(event_handle.urls)),
     url(r'^api/', include(org_handle.urls)),
     
