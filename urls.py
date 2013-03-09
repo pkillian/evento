@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
-from eventmanager import EntryResource
+from eventmanager.api import EntryResource
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -18,7 +18,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    
+
     url(r'^org/', include(org_handle.urls)),
     url(r'^event/', include(entry_handle.urls)),
 )
