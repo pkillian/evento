@@ -32,8 +32,7 @@ def org_events(request, id=None):
                 'event_name': item.event_name,
                 'location': item.location,
                 'start': time.mktime(datetime.combine(item.start_date, item.start_time).timetuple()),
-                'end_date': item.end_date.isoformat(),
-                'end_time': item.end_time.isoformat(),
+                'end': time.mktime(datetime.combine(item.end_date, item.end_time).timetuple()),
             }
             json_result['events'].append(event)
         return HttpResponse(simplejson.dumps(json_result), mimetype='application/json')
