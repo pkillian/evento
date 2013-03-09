@@ -1,7 +1,9 @@
-<html>
-	<h1> List of All Registered Organizations </h1>
-	{% for org in listoforgs %}
-		<li>{{org}}</li>
-	{% endfor %}
-	
-</html>
+
+{% extends "base.html" %}
+{% block title %} Event Form {% endblock %}
+{% block main_content %}
+    <h2> List of All Registered Organizations </h2>
+        {% for org in listoforgs %}
+            <li>{{org}}</li>
+        {% endfor %}
+{% endblock %}
