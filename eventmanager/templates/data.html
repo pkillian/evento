@@ -1,5 +1,6 @@
-<html>
-	<h1> Table of All Events </h1>
+{% extends "base.html" %}
+{% block title %} Table of All Events {% endblock %}
+{% block main_content %}
 <table>
     <tr>
         <th>event_name</th>
@@ -23,5 +24,4 @@
     </tr>
     {% endfor %}
 </table>
-	
-</html>
+{% endblock %}
