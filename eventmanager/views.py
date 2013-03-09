@@ -1,8 +1,12 @@
 import logging
 import re
-from eventmanager.models import EventForm, OrgForm
+import sys
+from eventmanager.models import EventForm, OrgForm, Organization, Event
 
-from django.http import HttpResponse, Http404, HttpResponseRedirect
+
+from django.template import Context
+from django.template import loader
+from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpResponseServerError
 from django.conf import settings
 from django.shortcuts import render_to_response, render
 from django.template import RequestContext
@@ -14,7 +18,6 @@ from django.db import transaction
 from django.views.generic.edit import FormView
 
 from datetime import date, time, timedelta
-from eventmanager.models import Event
 
 def event_insert(request):
     if request.method == 'POST':
@@ -39,7 +42,7 @@ def org_insert(request):
     else:
         form = OrgForm()
     
-    return render(request, 'org_form.html', {
+    return render(request, 'org_form_twitter.html', {
         'form': form,
     })
 
@@ -48,4 +51,18 @@ def thank_you(request):
 
 def homepage(request):
     return render(request, 'homepage.html')
+
+def view_orgs(request):
+    listoforgs = Organization.objects.all()
+
+    return render(request, 'orglist.html', {'listoforgs':listoforgs})
+
+def view_data(request):
+    allData = Event.objects.all()
+    
+    return render(request, 'data.html', {'allData':allData})
+
+        
+    
+    
 

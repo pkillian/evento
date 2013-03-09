@@ -3,6 +3,9 @@
 		<title>Event Form</title>
 	</head>
 	
+	<h1> Create an Event! </h1>
+
+	
 	<body>
 		<form action="/event-form/" method="post">{% csrf_token %}
 		{{ form.as_p }}

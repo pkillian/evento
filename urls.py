@@ -9,6 +9,8 @@ admin.autodiscover()
 org_handle = OrganizationResource();
 event_handle = EventResource();
 
+#handler500 = 'eventmanager.views.custom_500'
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'evento.views.home', name='home'),
@@ -30,5 +32,7 @@ urlpatterns = patterns('',
     url(r'^org-form/$', views.org_insert),
     url(r'^event-form/$', views.event_insert),
     url(r'^thanks/$', views.thank_you),
+    url(r'^orgs/$', views.view_orgs),
+    url(r'^data/$', views.view_data),
     url(r'^$', views.homepage)
 )

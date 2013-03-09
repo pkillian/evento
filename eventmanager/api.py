@@ -14,6 +14,7 @@ from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbid
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.utils import simplejson
+from django.views.decorators.csrf import csrf_exempt
 
 class EventResource(ModelResource):
     class Meta:
@@ -46,12 +47,16 @@ def org_events(request, id=None):
             json_result['events'].append(event)
         return HttpResponse(simplejson.dumps(json_result), mimetype='application/json')
 
+@csrf_exempt
 def analytic_store(request):
-    for item in request.POST['analytics']:
+    data=simplejson.loads(request.raw_post_data)
+    for item in data:
         event_analytic = EventAnalytic()
-        event_analytic.event_id = int(item['event_id'])
-        event_analytic.latitude = float(item['latitude'])
-        event_analytic.longitude = float(item['longitude'])
-        event_analytic.date = int(item['date'])
+        value = item['event_name']
+        event_analytic.event_name = value
+        event_analytic.event_time = datetime.datetime.now()
         event_analytic.save()
-    return HttpResponse(simplejson.dumps(request.POST), mimetype='application/json')
+    response = HttpResponse("OK")
+    response.status_code = 200
+    return response
+
