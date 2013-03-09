@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 from eventmanager.api import EventResource, OrganizationResource
+from eventmanager import views
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -23,4 +24,8 @@ urlpatterns = patterns('',
 
     url(r'^api/', include(event_handle.urls)),
     url(r'^api/', include(org_handle.urls)),
+    
+    url(r'^org-form/$', views.org_insert),
+    url(r'^event-form/$', views.event_insert),
+    url(r'^thanks/$', views.thank_you),
 )
