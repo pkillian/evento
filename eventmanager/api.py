@@ -45,7 +45,7 @@ def org_events(request, id=None):
         return HttpResponse(simplejson.dumps(json_result), mimetype='application/json')
 
 def analytic_store(request):
-    for item in request.POST['analytics']
+    for item in request.POST['analytics']:
         event_analytic = EventAnalytic()
         event_analytic.event_id = int(item['event_id'])
         event_analytic.latitude = int(item['latitude'])
