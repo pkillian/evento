@@ -31,6 +31,7 @@ urlpatterns = patterns('',
     
     url(r'^org-form/$', views.org_insert),
     url(r'^event-form/$', views.event_insert),
+    url(r'^event-form-fucked/$', views.event_insert_fucked),
     url(r'^thanks/$', views.thank_you),
     url(r'^orgs/$', views.view_orgs),
     url(r'^data/$', views.view_data),

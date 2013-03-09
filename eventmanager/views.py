@@ -32,6 +32,19 @@ def event_insert(request):
         'form': form,
     })
 
+def event_insert_fucked(request):
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/thanks/')
+    else:
+        form = EventForm()
+    
+    return render(request, 'event_form_twitter.html', {
+        'form': form,
+    })
+
 def org_insert(request):
     if request.method == 'POST':
         form = OrgForm(request.POST)
