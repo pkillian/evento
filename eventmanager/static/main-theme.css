@@ -9,7 +9,7 @@ body {
     height: 100%;
     min-height: 100%;
     margin: 0;
-    background-image: url("/img/body-bg-groove.png");
+    background-image: url("http://pkillian.me/img/body-bg-groove.png");
     font-family: 'Varela Round', 'Helvetica', 'Arial', sans-serif;
 }
 
