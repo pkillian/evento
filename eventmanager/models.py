@@ -13,7 +13,7 @@ class Event(models.Model):
 
 class Organization(models.Model):
     org_name = models.CharField(max_length=100)
-    
+        
     def __unicode__(self):
         return self.org_name
     
