@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-<title>{% block title %}OOTO{% endblock %}</title>
+<title>{% block title %}Evento{% endblock %}</title>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
@@ -10,14 +10,14 @@
 
 <link rel="stylesheet" href="{{ STATIC_URL }}main-theme.css">
 
-<!-- Use Font Awesome - http://fortawesome.github.com/Font-Awesome -->
-<link rel="stylesheet" href="{% static "css/style.css" %}">
-
-<script src="{% static "js/min/templates.js" %}"></script>
+<script src="{{ STATIC_URL }}jquery.js"></script>
 
 </head>
-<body class="container-fluid">
+<body class="body">
+    <div class="container">
 
-
+        {% block main_content %}
+        {% endblock %}
+    </div>
 </body>
 </html>
