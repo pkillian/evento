@@ -335,12 +335,12 @@ a:hover {
 .footer .top {
     z-index: inherit;
     height: 40px;
-    background-image: url("/img/footer-top-bg.png");
+    background-image: url("http://pkillian.me/img/footer-top-bg.png");
 }
 
 .footer .base {
     z-index: inherit;
     height: inherit;
-    background-image: url("/img/footer-bg.png");
+    background-image: url("http://pkillian.me/img/footer-bg.png");
     background-repeat: repeat;
 }
