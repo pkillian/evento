@@ -4,7 +4,7 @@ from eventmanager.models import Event, Organization
 
 class EntryResource(ModelResource):
     class Meta:
-        queryset = Entry.objects.all()
+        queryset = Event.objects.all()
         resource_name = 'entry'
 
 class OrganizationResource(ModelResource):
