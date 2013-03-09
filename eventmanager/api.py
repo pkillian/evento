@@ -32,7 +32,10 @@ def org_events(request, id=None):
         json_result = {'events' : []}
 
         org_id = id
-        org_name = Organization.objects.select_related().filter(id=org_id)[0].org_name
+        org_name = None
+        for item in Organization.objects.select_related().filter(id=org_id):
+            org_name = item.org_name
+            break
 
         json_result['org_id'] = int(org_id)
         json_result['org_name'] = org_name
