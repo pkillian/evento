@@ -29,7 +29,7 @@ def org_events(request, id=None):
         json_result = {'events' : []}
 
         org_id = id
-        org_name = Organization.objects.select_related().filter(id=org_id).org_name
+        org_name = Organization.objects.select_related().filter(id=org_id)[0].org_name
 
         json_result['events'].append(org_id)
         json_result['events'].append(org_name)
