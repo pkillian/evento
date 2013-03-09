@@ -51,3 +51,4 @@ def analytic_store(request):
         event_analytic.latitude = int(item['latitude'])
         event_analytic.longitude = int(item['longitude'])
         event_analytic.date = int(item['date'])
+        event_analytic.save()
