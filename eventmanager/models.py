@@ -5,18 +5,19 @@ class Event(models.Model):
     event_name = models.CharField(max_length=100)
     org_name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
-    start_time = models.IntegerField()
-    end_time = models.IntegerField()
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
     
     def __unicode__(self):
         return self.event_name
+
+class Organization(models.Model):
+    org_name = models.CharField(max_length=100)
     
-    # Returns list of all organizations.
-    def getAllOrgs(self):
-        return False;
-        
-    # Returns all events for specific organization.
-    def getEvents(self):
-        return False;
+    def __unicode__(self):
+        return self.org_name
+    
+
+
 
         
