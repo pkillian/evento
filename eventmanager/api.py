@@ -4,7 +4,8 @@ from eventmanager.models import Event, Organization
 import logging
 import re
 
-from datetime import date, time, datetime
+import time
+from datetime import date, datetime
 
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
