@@ -1,5 +1,5 @@
 from tastypie.resources import ModelResource
-from eventmanager.models import Entry, Organization
+from eventmanager.models import Event, Organization
 
 
 class EntryResource(ModelResource):
