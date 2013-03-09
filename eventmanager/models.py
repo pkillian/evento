@@ -5,8 +5,10 @@ class Event(models.Model):
     event_name = models.CharField(max_length=100)
     org_name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
-    start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
+    start_date = models.DateField()
+    start_time = models.TimeField()
+    end_date = models.DateField()
+    end_time = models.TimeField()
     
     def __unicode__(self):
         return self.event_name
@@ -16,10 +18,4 @@ class Organization(models.Model):
         
     def __unicode__(self):
         return self.org_name
-    
-    
-    
-
-
-
         
