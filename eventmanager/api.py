@@ -10,5 +10,5 @@ class EventResource(ModelResource):
 class OrganizationResource(ModelResource):
     class Meta:
         queryset = Organization.objects.all()
-        resource_name = 'organization'
+        resource_name = 'org'
 
