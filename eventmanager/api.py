@@ -1,4 +1,6 @@
 from tastypie.resources import ModelResource
+from tastypie.authorization import Authorization
+
 from eventmanager.models import Event, Organization, EventAnalytic
 
 import logging
@@ -48,7 +50,8 @@ def analytic_store(request):
     for item in request.POST['analytics']:
         event_analytic = EventAnalytic()
         event_analytic.event_id = int(item['event_id'])
-        event_analytic.latitude = int(item['latitude'])
-        event_analytic.longitude = int(item['longitude'])
+        event_analytic.latitude = float(item['latitude'])
+        event_analytic.longitude = float(item['longitude'])
         event_analytic.date = int(item['date'])
         event_analytic.save()
+    return HttpResponse(simplejson.dumps(request.POST), mimetype='application/json')

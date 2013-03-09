@@ -21,8 +21,8 @@ class Event(models.Model):
 
 class EventAnalytic(models.Model):
     event_id = models.IntegerField()
-    latitude = models.IntegerField()
-    longitude = models.IntegerField()
+    latitude = models.FloatField()
+    longitude = models.FloatField()
     date = models.IntegerField()
 
     def __unicode__(self):
