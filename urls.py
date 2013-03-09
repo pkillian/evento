@@ -20,4 +20,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^api/', include(event_handle.urls)),
+    url(r'^api/', include(org_handle.urls)),
 )
