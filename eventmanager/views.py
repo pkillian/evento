@@ -32,7 +32,7 @@ def event_insert(request):
         'form': form,
     })
 
-def event_insert_fucked(request):
+def event_insert_style(request):
     if request.method == 'POST':
         form = EventForm(request.POST)
         if form.is_valid():
@@ -46,6 +46,20 @@ def event_insert_fucked(request):
     })
 
 def org_insert(request):
+    if request.method == 'POST':
+        form = OrgForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/event-form/')
+    else:
+        form = OrgForm()
+    
+    return render(request, 'org_form.html', {
+        'form': form,
+    })
+
+def org_insert_style(request):
     if request.method == 'POST':
         form = OrgForm(request.POST)
         
