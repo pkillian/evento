@@ -46,3 +46,6 @@ def org_insert(request):
 def thank_you(request):
     return render(request, 'thank_you.html')
 
+def homepage(request):
+    return render(request, 'homepage.html')
+

@@ -30,4 +30,5 @@ urlpatterns = patterns('',
     url(r'^org-form/$', views.org_insert),
     url(r'^event-form/$', views.event_insert),
     url(r'^thanks/$', views.thank_you),
+    url(r'^$', views.homepage)
 )
