@@ -19,6 +19,8 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 
+    url(r'^api/org_events/(?P<id>\d+)$', 'eventmanager.api.org_events', name='Org_Events'),
+
     url(r'^api/', include(event_handle.urls)),
     url(r'^api/', include(org_handle.urls)),
 )
