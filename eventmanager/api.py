@@ -21,7 +21,7 @@ class OrganizationResource(ModelResource):
         queryset = Organization.objects.all()
         resource_name = 'org'
 
-def org_events(id=None):
+def org_events(request, id=None):
     if (id != None):
         events = Event.objects.select_related().filter(org_id=id)
         json_result = {'events' : []}
