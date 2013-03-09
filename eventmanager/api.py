@@ -4,7 +4,7 @@ from eventmanager.models import Event, Organization
 import logging
 import re
 
-from datetime import date, datetime
+from datetime import date, time, datetime
 
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
@@ -30,8 +30,7 @@ def org_events(request, id=None):
             event = {
                 'event_name': item.event_name,
                 'location': item.location,
-                'start_date': item.start_date.isoformat(),
-                'start_time': item.start_time.isoformat(),
+                'start': time.mktime(datetime.combine(item.start_date, item.start_time)),
                 'end_date': item.end_date.isoformat(),
                 'end_time': item.end_time.isoformat(),
             }
