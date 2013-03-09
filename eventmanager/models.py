@@ -6,7 +6,7 @@ class Organization(models.Model):
         
     def __unicode__(self):
         return self.org_name
-        
+
 class Event(models.Model):
     event_name = models.CharField(max_length=100)
     org_id = models.ForeignKey(Organization)
@@ -18,3 +18,12 @@ class Event(models.Model):
     
     def __unicode__(self):
         return self.event_name
+
+class EventAnalytic(models.Model):
+    event_id = models.IntegerField()
+    latitude = models.IntegerField()
+    longitude = models.IntegerField()
+    date = models.IntegerField()
+
+    def __unicode__(self):
+        return self.event_id
