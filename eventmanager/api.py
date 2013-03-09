@@ -31,8 +31,8 @@ def org_events(request, id=None):
         org_id = id
         org_name = Organization.objects.select_related().filter(id=org_id)[0].org_name
 
-        json_result['events'].append(org_id)
-        json_result['events'].append(org_name)
+        json_result['org_id'] = org_id
+        json_result['org_name'] = org_name
 
         for item in events:
             event = {
